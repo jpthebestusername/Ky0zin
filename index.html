@@ -1,363 +1,338 @@
-</html><!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyozin | Creative Video Editor</title>
+    <title>Kyozin | Site em Manutenção</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --main-color: #B1C5DE;
+            --main-dark: #8BA5CA;
+            --accent: #FF6B8B;
+            --dark: #0A0A1A;
+            --light: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .maintenance-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(10, 10, 26, 0.9), rgba(177, 197, 222, 0.1));
+            z-index: -1;
+        }
+        
+        .big-x {
+            font-size: 20rem;
+            font-weight: 900;
+            color: var(--accent);
+            margin-bottom: 30px;
+            text-shadow: 0 0 50px rgba(255, 107, 139, 0.7);
+            line-height: 1;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+        }
+        
+        .message {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+        
+        .message h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--light);
+        }
+        
+        .message p {
+            font-size: 1.2rem;
+            color: var(--main-color);
+            line-height: 1.6;
+        }
+        
+        .contacts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-card {
+            background: rgba(177, 197, 222, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(177, 197, 222, 0.2);
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background: rgba(177, 197, 222, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--main-color);
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+            color: var(--main-color);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(177, 197, 222, 0.1);
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            background: var(--main-color);
+            color: var(--dark);
+        }
+        
+        .countdown {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: var(--main-color);
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+        
+        .logo span {
+            color: var(--main-color);
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .big-x {
+                font-size: 15rem;
+            }
+            
+            .message h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .big-x {
+                font-size: 10rem;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            line-height: 1;
+            height: auto;
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0;
+            margin: 40px 0 20px 0;
+            overflow: visible;
+            position: relative;
+            top: 0;
+            left: 0;
+            transform: none;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 30px rgba(255, 107, 139, 0.7);
+        }
+            
+            .message h1 {
+                font-size: 2rem;
+            }
+            
+            .message p {
+                font-size: 1rem;
+            }
+            
+            .contacts {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .logo {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .big-x {
+                font-size: 8rem;
+            }
+            
+            .message h1 {
+                font-size: 1.8rem;
+            }
+            
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-
+    <div class="maintenance-overlay"></div>
     
-    <!-- Header -->
-    <header>
-        <a href="#" class="logo">Kyozin</a>
-        <nav>
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#portfolio" class="nav-link">Portfolio</a>
-            <a href="#services" class="nav-link">Services</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </nav>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-    </header>
+    <a href="#" class="logo">Kyozin</a>
     
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Video Editing That <span class="typewriter">Inspires</span></h1>
-            <p class="hero-subtitle">Transforming your ideas into impactful visual narratives. Every cut, transition, and effect is carefully planned to tell your story uniquely.</p>
-            <div class="hero-buttons">
-                <a href="#portfolio" class="btn btn-primary">
-                    <i class="fas fa-play-circle"></i> View Works
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Get In Touch
-                </a>
+    <div class="big-x">X</div>
+    
+    <div class="message">
+        <h1>Site em Manutenção</h1>
+        <p>Estamos trabalhando para melhorar sua experiência. Enquanto isso, entre em contato comigo através dos canais abaixo.</p>
+    </div>
+    
+    <div class="contacts">
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
             </div>
-        </div>
-    </section>
-    
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section">
-        <div class="section-header">
-            <h2 class="section-title">My Portfolio</h2>
-            <p class="section-subtitle">A selection of my best video editing works</p>
+            <h3 class="contact-title">Email</h3>
+            <p class="contact-info">jp04rocha@gmail.com</p>
         </div>
         
-        <div class="portfolio-grid">
-            <!-- Project 1 -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="xIcIWNQnNkg" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/xIcIWNQnNkg/maxresdefault.jpg" alt="I Became a Streamer!!!">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">I Became a Streamer!!!</h3>
-                    <p class="portfolio-category">Creative Editing</p>
-                </div>
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-phone"></i>
             </div>
-            
-            <!-- Project 2 -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="jZ7o0-Kt9Eg" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/jZ7o0-Kt9Eg/maxresdefault.jpg" alt="Times Change">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Times Change</h3>
-                    <p class="portfolio-category">Narrative Editing</p>
-                </div>
-            </div>
-            
-            <!-- Project 3 -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="grg22BnJHKU" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/grg22BnJHKU/maxresdefault.jpg" alt="WAVEIGL - How Is He Now?">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">WAVEIGL - How Is He Now?</h3>
-                    <p class="portfolio-category">Music Video Editing</p>
-                </div>
-            </div>
-            
-            <!-- Project 4 -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="bk9U6kXEsHY" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/bk9U6kXEsHY/maxresdefault.jpg" alt="GACHA LIFE - For Grown Ups Only">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">GACHA LIFE - For Grown Ups Only</h3>
-                    <p class="portfolio-category">Creative Editing</p>
-                </div>
-            </div>
-            
-            <!-- Project 5 -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="1ss6FStmsqA" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/1ss6FStmsqA/maxresdefault.jpg" alt="Fortnite - Pridde(Kendric Lamar)">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Fortnite - Pridde(Kendric Lamar)</h3>
-                    <p class="portfolio-category">Game Editing</p>
-                </div>
-            </div>
-             <!-- Project 6 -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="G3jmaU7e_IA" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/G3jmaU7e_IA/maxresdefault.jpg" alt="I'm Come Back">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">I'm Come Back</h3>
-                    <p class="portfolio-category">Vlog Video</p>
-                </div>
-            </div>
-            <!-- Project 11: Soulbound - Shorts/Reels -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="0KUC5KhPWYk" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/0KUC5KhPWYk/maxresdefault.jpg" alt="Soulbound Shorts/Reels">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Soulbound Shorts/Reels</h3>
-                    <p class="portfolio-category">
-                        Client: <a href="https://www.youtube.com/@soulbound_game" target="_blank" style="color: #ffb800;">Soulbound</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Project 12: Soulbound - YouTube Edit -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="gPrbMWp1mXQ" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/gPrbMWp1mXQ/maxresdefault.jpg" alt="Soulbound YouTube Edit">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Soulbound YouTube Edit</h3>
-                    <p class="portfolio-category">
-                        Client: <a href="https://www.youtube.com/@soulbound_game" target="_blank" style="color: #ffb800;">Soulbound</a>
-                    </p>
-                </div>
-            </div>
-            <!-- Project 12: Content creator on Instagram -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="DyaCgLHTwm0" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/DyaCgLHTwm0/maxresdefault.jpg" alt="Soulbound YouTube Edit">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Content creator on Instagram</h3>
-                    <p class="portfolio-category">
-                        Client: <a href="https://www.tiktok.com/@angela_lane00" target="_blank" style="color: #ffb800;">Angela Lane</a>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Project 14: Boxing Tutorial (English) -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="BRaT_M9GfnE" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/BRaT_M9GfnE/maxresdefault.jpg" alt="Boxing Tutorial (English)">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Boxing Tutorial (English)</h3>
-                    <p class="portfolio-category">
-                        Client: <a href="https://www.youtube.com/@oracle_boxing" target="_blank" style="color: #ffb800;">Oracle Boxing</a>
-                    </p>
-                </div>
-            </div>
-             <!-- Project 15: Software Tips (English) -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="0Gv93TPAPRU" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/0Gv93TPAPRU/maxresdefault.jpg" alt="Software Tips (English)">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Software Tips (Espanhol)</h3>
-                    <p class="portfolio-category">
-                        Client: <a href="https://www.youtube.com/@FinanzasCuantitativas" target="_blank" style="color: #ffb800;">Finanzas Cuantitativas (Another channel for the same customer)</a>
-                    </p>
-                </div>
-            </div>
-             <!-- Project 16: Video for Content Creator in the Instagram (English) -->
-            <div class="portfolio-item">
-                <div class="video-thumbnail" data-video-id="1rV62awq-qA" data-source="youtube">
-                    <img src="https://img.youtube.com/vi/1rV62awq-qA/maxresdefault.jpg" alt="Boxing Tutorial (English)">
-                    <div class="play-icon"><i class="fas fa-play"></i></div>
-                </div>
-                <div class="portfolio-info">
-                    <h3 class="portfolio-title">Video for Content Creator in the Instagram (English)</h3>
-                    <p class="portfolio-category">
-                        Client: <a href="https://www.youtube.com/@" target="_blank" style="color: #ffb800;">Ariana Pink</a>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Video Modal -->
-        <div class="video-modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
-                <div class="video-container">
-                    <iframe id="video-frame" width="560" height="315" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section id="services" class="section">
-        <div class="section-header">
-            <h2 class="section-title">My Services</h2>
-            <p class="section-subtitle">What I can offer to elevate your videos</p>
+            <h3 class="contact-title">Telefone</h3>
+            <p class="contact-info">+55 (11) 97807-3711</p>
         </div>
         
-        <div class="services-grid">
-            <!-- Service 1 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-cut"></i>
-                </div>
-                <h3 class="service-title">Creative Editing</h3>
-                <p class="service-description">Transform raw footage into impactful videos with precise cuts, smooth transitions, and cinematic pacing.</p>
+        <div class="contact-card">
+            <div class="contact-icon">
+                <i class="fas fa-video"></i>
             </div>
-            
-            <!-- Service 2 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3 class="service-title">Color Grading</h3>
-                <p class="service-description">Professional color grading to create atmosphere, emotion, and visual consistency in your videos.</p>
-            </div>
-            
-            <!-- Service 3 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-magic"></i>
-                </div>
-                <h3 class="service-title">Motion Graphics</h3>
-                <p class="service-description">Add animated elements, dynamic titles, and visual effects to make your videos more engaging.</p>
-            </div>
-            
-            <!-- Service 4 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-music"></i>
-                </div>
-                <h3 class="service-title">Sound Design</h3>
-                <p class="service-description">Professional audio mixing with soundtracks, effects, and adjustments for an immersive experience.</p>
-            </div>
+            <h3 class="contact-title">Portfólio</h3>
+            <p class="contact-info">Em breve novamente disponível</p>
         </div>
-    </section>
+    </div>
     
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="section-header">
-            <h2 class="section-title">Let's Talk</h2>
-            <p class="section-subtitle">Ready to transform your ideas into amazing videos?</p>
-        </div>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-detail">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Email</h3>
-                        <p>jp04rocha@gmail.com</p>
-                    </div>
-                </div>
-                
-                <div class="contact-detail">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Phone</h3>
-                        <p>+55 (11) 97807-3711</p>
-                    </div>
-                </div>
-                
-                <div class="contact-detail">
-                    <div class="contact-icon">
-                        <i class="fas fa-share-alt"></i>
-                    </div>
-                    <div class="contact-text">
-                        <h3>Social Media</h3>
-                        <div class="social-links">
-                            <a href="https://x.com/Satoru73680966" class="social-link" title="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://github.com/jpthebestusername" class="social-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://discord.gg/sXHuncZjvN" class="social-link" title="Discord">
-                                <i class="fab fa-discord"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="social-links">
+        <a href="https://x.com/Satoru73680966" class="social-link" title="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://github.com/jpthebestusername" class="social-link" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://discord.gg/sXHuncZjvN" class="social-link" title="Discord">
+            <i class="fab fa-discord"></i>
+        </a>
+    </div>
+    
+    <div class="countdown">
+        <p>Voltaremos em breve com novidades!</p>
+    </div>
+
+    <script>
+        // Efeito de partículas simples no plano de fundo
+        document.addEventListener('DOMContentLoaded', function() {
+            const overlay = document.querySelector('.maintenance-overlay');
             
-            <form class="contact-form" action="https://formsubmit.co/jp04rocha@gmail.com" method="POST">
-                <input type="hidden" name="_captcha" value="false">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
+            // Criar partículas simples
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = 'rgba(177, 197, 222, 0.3)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.zIndex = '-1';
                 
-                <div class="form-group">
-                    <label for="email">Your Email</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
+                // Animação
+                particle.style.animation = `float ${Math.random() * 10 + 10}s infinite ease-in-out`;
+                particle.style.animationDelay = Math.random() * 5 + 's';
                 
-                <div class="form-group">
-                    <label for="service">Service Type</label>
-                    <select id="service" name="service" class="form-control" required>
-                        <option value="">Select a service</option>
-                        <option value="editing">Video Editing</option>
-                        <option value="color">Color Grading</option>
-                        <option value="motion">Motion Graphics</option>
-                        <option value="sound">Sound Design</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" class="form-control" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%;">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-            </form>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <a href="#" class="footer-logo">Kyozin</a>
-        <div class="footer-links">
-            <a href="#home" class="footer-link">Home</a>
-            <a href="#portfolio" class="footer-link">Portfolio</a>
-            <a href="#services" class="footer-link">Services</a>
-            <a href="#contact" class="footer-link">Contact</a>
-        </div>
-        <p class="copyright">&copy; 2025 Kyozin. All rights reserved.</p>
-    </footer>
-    
-    <script src="script.js"></script>
+                overlay.appendChild(particle);
+            }
+            
+            // Adicionar keyframes para a animação de flutuação
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes float {
+                    0%, 100% { transform: translate(0, 0); }
+                    25% { transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px); }
+                    50% { transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px); }
+                    75% { transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px); }
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
 </body>
 </html>
