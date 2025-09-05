@@ -1,338 +1,310 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyozin | Site em Manutenção</title>
+    <title>Ky0zin | Video Editor & Content Creator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --main-color: #B1C5DE;
-            --main-dark: #8BA5CA;
-            --accent: #FF6B8B;
-            --dark: #0A0A1A;
-            --light: #FFFFFF;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .maintenance-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(10, 10, 26, 0.9), rgba(177, 197, 222, 0.1));
-            z-index: -1;
-        }
-        
-        .big-x {
-            font-size: 20rem;
-            font-weight: 900;
-            color: var(--accent);
-            margin-bottom: 30px;
-            text-shadow: 0 0 50px rgba(255, 107, 139, 0.7);
-            line-height: 1;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% { 
-                transform: scale(1.05);
-                opacity: 0.8;
-            }
-        }
-        
-        .message {
-            max-width: 700px;
-            margin-bottom: 50px;
-        }
-        
-        .message h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--light);
-        }
-        
-        .message p {
-            font-size: 1.2rem;
-            color: var(--main-color);
-            line-height: 1.6;
-        }
-        
-        .contacts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            width: 100%;
-            max-width: 800px;
-            margin-bottom: 50px;
-        }
-        
-        .contact-card {
-            background: rgba(177, 197, 222, 0.1);
-            padding: 30px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(177, 197, 222, 0.2);
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-5px);
-            background: rgba(177, 197, 222, 0.2);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--main-color);
-        }
-        
-        .contact-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--light);
-        }
-        
-        .contact-info {
-            font-size: 1.1rem;
-            color: var(--main-color);
-        }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-        
-        .social-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: rgba(177, 197, 222, 0.1);
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .social-link:hover {
-            transform: translateY(-5px);
-            background: var(--main-color);
-            color: var(--dark);
-        }
-        
-        .countdown {
-            margin-top: 40px;
-            font-size: 1.2rem;
-            color: var(--main-color);
-        }
-        
-        .logo {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light);
-        }
-        
-        .logo span {
-            color: var(--main-color);
-        }
-        
-        /* Responsividade */
-        @media (max-width: 992px) {
-            .big-x {
-                font-size: 15rem;
-            }
-            
-            .message h1 {
-                font-size: 2.5rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .big-x {
-                font-size: 10rem;
-            margin-bottom: 20px;
-            margin-top: 40px;
-            line-height: 1;
-            height: auto;
-            display: block;
-            width: 100%;
-            text-align: center;
-            padding: 0;
-            margin: 40px 0 20px 0;
-            overflow: visible;
-            position: relative;
-            top: 0;
-            left: 0;
-            transform: none;
-            animation: pulse 2s infinite;
-            text-shadow: 0 0 30px rgba(255, 107, 139, 0.7);
-        }
-            
-            .message h1 {
-                font-size: 2rem;
-            }
-            
-            .message p {
-                font-size: 1rem;
-            }
-            
-            .contacts {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-card {
-                padding: 20px;
-            }
-            
-            .logo {
-                position: relative;
-                top: 0;
-                left: 0;
-                margin-bottom: 30px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .big-x {
-                font-size: 8rem;
-            }
-            
-            .message h1 {
-                font-size: 1.8rem;
-            }
-            
-            .social-link {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="maintenance-overlay"></div>
-    
-    <a href="#" class="logo">Kyozin</a>
-    
-    <div class="big-x">X</div>
-    
-    <div class="message">
-        <h1>Site em Manutenção</h1>
-        <p>Estamos trabalhando para melhorar sua experiência. Enquanto isso, entre em contato comigo através dos canais abaixo.</p>
-    </div>
-    
-    <div class="contacts">
-        <div class="contact-card">
-            <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
+<body class="bg-gray-900 text-white font-montserrat">
+    <!-- Header -->
+    <header id="header" class="fixed w-full z-50 py-5 bg-gray-900 bg-opacity-90 transition-all duration-400">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Ky0zin</a>
+            
+            <div class="menu-toggle md:hidden text-xl">
+                <i class="fas fa-bars"></i>
             </div>
-            <h3 class="contact-title">Email</h3>
-            <p class="contact-info">jp04rocha@gmail.com</p>
+            
+            <nav class="hidden md:flex">
+                <ul class="flex space-x-8">
+                    <li><a href="#home" class="nav-link hover:text-blue-300 transition-colors duration-300">Home</a></li>
+                    <li><a href="#skills" class="nav-link hover:text-blue-300 transition-colors duration-300">Skills</a></li>
+                    <li><a href="portfolio.html" class="nav-link hover:text-blue-300 transition-colors duration-300">Portfolio</a></li>
+                    <li><a href="#pricing" class="nav-link hover:text-blue-300 transition-colors duration-300">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link hover:text-blue-300 transition-colors duration-300">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        
-        <div class="contact-card">
-            <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-            </div>
-            <h3 class="contact-title">Telefone</h3>
-            <p class="contact-info">+55 (11) 97807-3711</p>
-        </div>
-        
-        <div class="contact-card">
-            <div class="contact-icon">
-                <i class="fas fa-video"></i>
-            </div>
-            <h3 class="contact-title">Portfólio</h3>
-            <p class="contact-info">Em breve novamente disponível</p>
-        </div>
-    </div>
-    
-    <div class="social-links">
-        <a href="https://x.com/Satoru73680966" class="social-link" title="Twitter">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://github.com/jpthebestusername" class="social-link" title="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://discord.gg/sXHuncZjvN" class="social-link" title="Discord">
-            <i class="fab fa-discord"></i>
-        </a>
-    </div>
-    
-    <div class="countdown">
-        <p>Voltaremos em breve com novidades!</p>
-    </div>
+    </header>
 
-    <script>
-        // Efeito de partículas simples no plano de fundo
-        document.addEventListener('DOMContentLoaded', function() {
-            const overlay = document.querySelector('.maintenance-overlay');
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20">
+        <div class="container mx-auto px-4 py-20">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Video Editor & Content Creator</h1>
+                <p class="text-xl text-blue-200 mb-10">Transforming your ideas into impactful visual narratives. Every cut, transition, and effect is carefully planned to tell your story uniquely.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="portfolio.html" class="btn-primary">
+                        <i class="fas fa-play-circle mr-2"></i> View Portfolio
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <i class="fas fa-envelope mr-2"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">My Skills</h2>
+                <p class="text-xl text-blue-300 max-w-2xl mx-auto">My expertise across different areas of video editing and content creation</p>
+            </div>
             
-            // Criar partículas simples
-            for (let i = 0; i < 20; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = Math.random() * 5 + 2 + 'px';
-                particle.style.height = particle.style.width;
-                particle.style.backgroundColor = 'rgba(177, 197, 222, 0.3)';
-                particle.style.borderRadius = '50%';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.zIndex = '-1';
+            <div class="max-w-3xl mx-auto">
+                <!-- Skill Items -->
+                <div class="skill-item mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xl font-semibold">Adobe Premiere</span>
+                        <span class="text-xl font-bold text-blue-400">72%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="72%"></div>
+                    </div>
+                </div>
                 
-                // Animação
-                particle.style.animation = `float ${Math.random() * 10 + 10}s infinite ease-in-out`;
-                particle.style.animationDelay = Math.random() * 5 + 's';
+                <div class="skill-item mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xl font-semibold">YouTube Algorithm</span>
+                        <span class="text-xl font-bold text-blue-400">80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80%"></div>
+                    </div>
+                </div>
                 
-                overlay.appendChild(particle);
-            }
+                <div class="skill-item mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xl font-semibold">Capcut</span>
+                        <span class="text-xl font-bold text-blue-400">82%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="82%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xl font-semibold">After Effects</span>
+                        <span class="text-xl font-bold text-blue-400">70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-item mb-8">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-xl font-semibold">Thumbnail Design</span>
+                        <span class="text-xl font-bold text-blue-400">75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75%"></div>
+                    </div>
+                </div>
+                
+                <p class="text-blue-200 text-center italic mt-10">These skills have been developed through years of hands-on experience, continuous learning, and working on diverse projects across multiple industries and platforms.</p>
+            </div>
+        </div>
+    </section>
+
+   <!-- Pricing Section -->
+<section id="pricing" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-bold mb-4">Pricing</h2>
+            <p class="text-xl text-blue-300 max-w-2xl mx-auto">Transparent pricing for all your video editing needs</p>
+            <p class="text-blue-200 mt-4">All prices are listed in both USD and BRL. I accept PayPal for international clients and PIX for Brazilian clients.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <!-- Pricing Card 1 -->
+            <div class="pricing-card">
+                <h3 class="text-2xl font-bold mb-4">Short Videos</h3>
+                <div class="text-3xl font-bold text-blue-400 mb-6">$20 / R$50</div>
+                <ul class="mb-8">
+                    <li class="py-3 border-b border-gray-700">Reels up to 5 minutes</li>
+                    <li class="py-3 border-b border-gray-700">Professional editing</li>
+                    <li class="py-3 border-b border-gray-700">All necessary resources included</li>
+                    <li class="py-3">1 round of revisions</li>
+                </ul>
+                <a href="#contact" class="btn-primary w-full text-center">Get Started</a>
+            </div>
             
-            // Adicionar keyframes para a animação de flutuação
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float {
-                    0%, 100% { transform: translate(0, 0); }
-                    25% { transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px); }
-                    50% { transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px); }
-                    75% { transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px); }
-                }
-            `;
-            document.head.appendChild(style);
-        });
-    </script>
+            <!-- Pricing Card 2 -->
+            <div class="pricing-card">
+                <h3 class="text-2xl font-bold mb-4">Medium Videos</h3>
+                <div class="text-3xl font-bold text-blue-400 mb-6">$100 / R$125</div>
+                <ul class="mb-8">
+                    <li class="py-3 border-b border-gray-700">Videos up to 25 minutes</li>
+                    <li class="py-3 border-b border-gray-700">Advanced editing techniques</li>
+                    <li class="py-3 border-b border-gray-700">All necessary resources included</li>
+                    <li class="py-3 border-b border-gray-700">Customized approach</li>
+                    <li class="py-3">2 rounds of revisions</li>
+                </ul>
+                <a href="#contact" class="btn-primary w-full text-center">Get Started</a>
+            </div>
+            
+            <!-- Pricing Card 3 -->
+            <div class="pricing-card">
+                <h3 class="text-2xl font-bold mb-4">Long Videos</h3>
+                <div class="text-3xl font-bold text-blue-400 mb-6">$350 / R$350</div>
+                <ul class="mb-8">
+                    <li class="py-3 border-b border-gray-700">Videos above 1 hour</li>
+                    <li class="py-3 border-b border-gray-700">Premium editing package</li>
+                    <li class="py-3 border-b border-gray-700">All necessary resources included</li>
+                    <li class="py-3 border-b border-gray-700">Comprehensive approach</li>
+                    <li class="py-3">3 rounds of revisions</li>
+                </ul>
+                <a href="#contact" class="btn-primary w-full text-center">Get Started</a>
+            </div>
+        </div>
+        
+        <div class="pricing-note">
+            <div class="mb-6">
+                <p class="font-bold text-lg mb-3 text-blue-300">Important Information:</p>
+                <p class="mb-3">In every project, regardless of the package, I give my absolute best and utilize all appropriate resources including SFX, color grading, motion graphics, cutting, and music selection to create the perfect atmosphere for your video.</p>
+                <p class="mb-3">The specific techniques used will depend on your video's content and what I determine will work best after reviewing your footage.</p>
+            </div>
+            
+            <div class="mb-6">
+                <p class="font-bold text-lg mb-3 text-blue-300">Test Videos Policy:</p>
+                <p class="mb-3">I generally don't create test videos unless strictly necessary. If a test video is required, it will be charged at $20 or R$40.</p>
+            </div>
+            
+            <div>
+                <p class="font-bold text-lg mb-3 text-blue-300">Packages Available:</p>
+                <p class="mb-2">3-4 short videos per day (up to 1:30 each): $45/week or R$130/week</p>
+                <p class="mb-2">Daily videos: $75/video ($375/week) or R$80/video (R$1600/month)</p>
+                <p>For custom needs or fixed editor arrangements, contact me directly via Discord or WhatsApp.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-xl text-blue-300 max-w-2xl mx-auto">Ready to transform your ideas into amazing videos?</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="contact-info">
+                    <div class="flex items-center mb-8">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope text-blue-400"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-semibold mb-1">Email</h3>
+                            <p class="text-blue-200">jp04rocha@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-8">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt text-blue-400"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-semibold mb-1">Phone</h3>
+                            <p class="text-blue-200">+55 (11) 97807-3711</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-share-alt text-blue-400"></i>
+                        </div>
+                        <div class="ml-6">
+                            <h3 class="text-xl font-semibold mb-4">Social Media</h3>
+                            <div class="flex space-x-4">
+                                <a href="https://x.com/Satoru73680966" class="social-link" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://github.com/jpthebestusername" class="social-link" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://discord.com/channels/@me/1405269239203631206" class="social-link" title="Discord">
+                                    <i class="fab fa-discord"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form class="contact-form" action="https://formsubmit.co/jp04rocha@gmail.com" method="POST">
+                    <input type="hidden" name="_captcha" value="false">
+                    <div class="mb-6">
+                        <label for="name" class="block mb-2 font-semibold">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="email" class="block mb-2 font-semibold">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="service" class="block mb-2 font-semibold">Service Type</label>
+                        <select id="service" name="service" class="form-control" required>
+                            <option value="">Select a service</option>
+                            <option value="short">Short Video (up to 5min)</option>
+                            <option value="medium">Medium Video (up to 25min)</option>
+                            <option value="long">Long Video (1h+)</option>
+                            <option value="package">Package Deal</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block mb-2 font-semibold">Your Message</label>
+                        <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-full">
+                        <i class="fas fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900">
+        <div class="container mx-auto px-4 text-center">
+            <a href="#" class="footer-logo">Ky0zin</a>
+            
+            <div class="flex flex-wrap justify-center gap-6 my-8">
+                <a href="#home" class="footer-link">Home</a>
+                <a href="#skills" class="footer-link">Skills</a>
+                <a href="portfolio.html" class="footer-link">Portfolio</a>
+                <a href="#pricing" class="footer-link">Pricing</a>
+                <a href="#contact" class="footer-link">Contact</a>
+            </div>
+            
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://x.com/Satoru73680966" class="social-link" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://github.com/jpthebestusername" class="social-link" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://discord.gg/sXHuncZjvN" class="social-link" title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+            </div>
+            
+            <p class="text-blue-300 text-sm">&copy; 2025 Ky0zin. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
