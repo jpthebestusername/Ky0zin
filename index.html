@@ -10,6 +10,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-900 text-white font-montserrat">
+    <div class="fixed top-5 right-5 z-[9999]"> <!-- z-index maior para garantir clique -->
+        <button id="lang-toggle" type="button"
+            class="bg-blue-700 bg-opacity-80 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-500 hover:bg-opacity-90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 text-sm font-semibold flex items-center gap-2 cursor-pointer"
+            aria-label="Switch to Portuguese"
+            title="Switch to Portuguese">
+            <i class="fas fa-globe"></i>
+            PT-BR
+        </button>
+    </div>
     <!-- Header -->
     <header id="header" class="fixed w-full z-50 py-5 bg-gray-900 bg-opacity-90 transition-all duration-400">
         <div class="container mx-auto px-4 flex justify-between items-center">
@@ -35,13 +44,25 @@
     <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20">
         <div class="container mx-auto px-4 py-20">
             <div class="max-w-3xl">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Video Editor & Content Creator</h1>
-                <p class="text-xl text-blue-200 mb-10">Transforming your ideas into impactful visual narratives. Every cut, transition, and effect is carefully planned to tell your story uniquely.</p>
+                <h1 
+                  data-en="Video Editor & Content Creator" 
+                  data-pt="Editor de Vídeo & Criador de Conteúdo"
+                  class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">
+                  Video Editor & Content Creator
+                </h1>
+                <p 
+                  data-en="Transforming your ideas into impactful visual narratives. Every cut, transition, and effect is carefully planned to tell your story uniquely." 
+                  data-pt="Transformando suas ideias em narrativas visuais impactantes. Cada corte, transição e efeito é cuidadosamente planejado para contar sua história de forma única."
+                  class="text-xl text-blue-200 mb-10">
+                  Transforming your ideas into impactful visual narratives. Every cut, transition, and effect is carefully planned to tell your story uniquely.
+                </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="portfolio.html" class="btn-primary">
+                    <a href="portfolio.html" class="btn-primary"
+                       data-en="View Portfolio" data-pt="Ver Portfólio">
                         <i class="fas fa-play-circle mr-2"></i> View Portfolio
                     </a>
-                    <a href="#contact" class="btn-secondary">
+                    <a href="#contact" class="btn-secondary"
+                       data-en="Get In Touch" data-pt="Entrar em Contato">
                         <i class="fas fa-envelope mr-2"></i> Get In Touch
                     </a>
                 </div>
@@ -306,5 +327,45 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+    // Language toggle logic
+    document.addEventListener('DOMContentLoaded', function () {
+        const btn = document.getElementById('lang-toggle');
+        let currentLang = 'en'; // default
+
+        // Set initial state: English
+        btn.innerHTML = '<i class="fas fa-globe"></i> PT-BR';
+        btn.title = 'Switch to Portuguese';
+        btn.setAttribute('aria-label', 'Switch to Portuguese');
+
+        // Ensure all elements start in English
+        document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+            el.textContent = el.getAttribute('data-en');
+        });
+
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (currentLang === 'en') {
+                // Switch to Portuguese
+                document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+                    el.textContent = el.getAttribute('data-pt');
+                });
+                btn.innerHTML = '<i class="fas fa-globe"></i> EN';
+                btn.title = 'Switch to English';
+                btn.setAttribute('aria-label', 'Switch to English');
+                currentLang = 'pt';
+            } else {
+                // Switch to English
+                document.querySelectorAll('[data-en][data-pt]').forEach(el => {
+                    el.textContent = el.getAttribute('data-en');
+                });
+                btn.innerHTML = '<i class="fas fa-globe"></i> PT-BR';
+                btn.title = 'Switch to Portuguese';
+                btn.setAttribute('aria-label', 'Switch to Portuguese');
+                currentLang = 'en';
+            }
+        });
+    });
+    </script>
 </body>
 </html>
